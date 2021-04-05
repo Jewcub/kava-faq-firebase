@@ -1,0 +1,29 @@
+{
+  "name": "kava-faq-firebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "functions/index.js",
+  "scripts": {
+    "start:functions": "cd ./functions && yarn start",
+    "build:client": "cd ./client && yarn build",
+    "build:functions": "cd ./functions && yarn build",
+    "start": "yarn build:client && yarn start:functions",
+    "dev:client": "cd ./client && yarn dev",
+    "dev:functions": "cd ./functions && yarn serve",
+    "test-watch:functions": "cd functions && yarn test-watch",
+    "test:functions": "cd functions && yarn test",
+    "dev": "yarn dev:client && yarn dev:functions",
+    "inst": "cd ./functions && yarn install && cd ../client && yarn install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jewcub/kava-faq-firebase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jewcub/kava-faq-firebase/issues"
+  },
+  "homepage": "https://github.com/Jewcub/kava-faq-firebase#readme"
+}
