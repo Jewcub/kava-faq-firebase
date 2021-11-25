@@ -3,7 +3,7 @@ import express = require('express');
 import cors = require('cors');
 import path = require('path');
 import config from './config';
-const { projectPath } = config;
+const { projectPath, isDev } = config;
 
 import indexRouter from './routes/index';
 // reload
@@ -12,21 +12,22 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(projectPath, '/client/build')));
-// var whitelist = ["http://example1.com", "http://example2.com"];
-// var corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
+const allowList = ['https://kava-faq.web.app'];
+const corsOptions: cors.CorsOptions = {
+  origin: function (origin, callback) {
+    console.log({ origin });
+    if (origin && allowList.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
 
-// app.use(cors(corsOptions));
-app.use(cors());
+if (!isDev) app.use(cors(corsOptions));
+else app.use(cors());
 
-app.use('/api', indexRouter);
+app.use(indexRouter);
 
 app.get('/faq', (req, res) => {
   console.log('sending file', projectPath + '/client/build/');

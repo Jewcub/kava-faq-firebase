@@ -33,10 +33,45 @@ async function authorize() {
   try {
     token = await fsPromise.readFile(TOKEN_PATH);
   } catch (error) {
-    token = getAccessToken(oAuth2Client);
+    try {
+      getTokenFromEnv();
+    } catch (error) {
+      token = getAccessToken(oAuth2Client);
+    }
   }
   oAuth2Client.setCredentials(JSON.parse(token as any));
   return oAuth2Client;
+}
+
+async function getTokenFromEnv() {
+  console.log(
+    'tokenEnvs',
+    process.env.ACCESS_TOKEN,
+    process.env.REFRESH_TOKEN,
+    process.env.SCOPE,
+    process.env.EXPIRY_DATE,
+  );
+  if (
+    process.env.ACCESS_TOKEN &&
+    process.env.REFRESH_TOKEN &&
+    process.env.SCOPE &&
+    process.env.EXPIRY_DATE
+  ) {
+    //
+  }
+  const token = {
+    access_token: process.env.ACCESS_TOKEN,
+    refresh_token:
+      '1//0eIz4mek42SSMCgYIARAAGA4SNwF-L9IrjyQDo5WTd85CddMZHEbfYggan3hxE-unpsEL9fyBsW7UHaVm5heF-ijALqx_fvrXPoU',
+    scope: 'https://www.googleapis.com/auth/drive',
+    token_type: 'Bearer',
+    expiry_date: 1617610571113,
+  };
+  fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
+    if (err) return console.error(err);
+    console.log('Token stored to', TOKEN_PATH);
+  });
+  return token;
 }
 
 /**

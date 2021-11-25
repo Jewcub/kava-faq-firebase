@@ -3,11 +3,11 @@
   "scripts": {
     "start": "yarn build && env NODE_ENV='production' node dist/index.js",
     "dev": "ts-node-dev --inspect --poll --respawn ./src src/index.ts",
-    "build": "rm -rf dist && tsc -p tsconfig.build.json && mkdir ./dist/files && cp ./src/files/token.json ./dist/files/token.json",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && mkdir ./dist/files && cp -r ./src/files ./dist/files",
     "test": "jest",
     "test-watch": "jest --watchAll",
     "lint": "eslint --ext .js,.ts .",
-    "serve": "yarn build && firebase emulators:start --only functions",
+    "serve": "env NODE_ENV='development' && yarn build && firebase emulators:start --only functions",
     "shell": "npm run build && firebase functions:shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"

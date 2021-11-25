@@ -7,12 +7,14 @@
     "start:functions": "cd ./functions && yarn start",
     "build:client": "cd ./client && yarn build",
     "build:functions": "cd ./functions && yarn build",
+    "build": "yarn build:client && yarn build:functions",
     "start": "yarn build:client && yarn start:functions",
     "dev:client": "cd ./client && yarn dev",
     "dev:functions": "cd ./functions && yarn serve",
     "test-watch:functions": "cd functions && yarn test-watch",
     "test:functions": "cd functions && yarn test",
     "dev": "yarn dev:client && yarn dev:functions",
+    "deploy": "firebase deploy",
     "inst": "cd ./functions && yarn install && cd ../client && yarn install"
   },
   "repository": {

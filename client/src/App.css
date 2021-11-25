@@ -1,156 +1,159 @@
 .App {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  font-family: "Inter", sans-serif;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	font-family: 'Inter', sans-serif;
+	background-color: #f9f9f9;
+	display: flex;
+	justify-content: center;
 }
 .faq-body {
-  margin: 1rem;
+	margin: 1rem;
 }
 
 .scroller {
-  overflow: scroll;
-  scrollbar-color: rgba(162, 162, 162, 0.5) transparent;
-  scrollbar-width: thin;
+	overflow: scroll;
+	scrollbar-color: rgba(162, 162, 162, 0.5) transparent;
+	scrollbar-width: thin;
 }
 
 .scroller::-webkit-scrollbar {
-  width: 5px;
-  padding-right: 5px;
-  background-color: transparent;
+	width: 5px;
+	padding-right: 5px;
+	background-color: transparent;
 }
 
 .scroller::-webkit-scrollbar-thumb {
-  background-color: rgba(162, 162, 162, 0.5);
-  border-radius: 10px;
+	background-color: rgba(162, 162, 162, 0.5);
+	border-radius: 10px;
 }
 
 /* 
 Google font overrides
 */
 .g-bold {
-  font-weight: 700;
+	font-weight: 700;
 }
 .g-italic {
-  font-style: italic;
+	font-style: italic;
 }
 .g-underline {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 ul {
-  /* list-style: none; */
-  margin: 0;
+	/* list-style: none; */
+	margin: 0;
 }
 p {
-  margin: 0.5rem 0;
+	margin: 0.5rem 0;
+}
+.footnote {
+	margin-left: 2rem;
 }
 .main-wrapper {
-  width: 1200px;
+	width: 1200px;
 }
 .main-title {
-  margin: 1rem 2rem 0 1rem;
+	margin: 1rem 2rem 0 1rem;
 }
 .spinner-wrapper {
-  width: 100vw;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .loading-spinner {
-  height: 15vh;
-  width: 15vw;
-  animation: spin 4s infinite linear;
-  -webkit-animation: spin 4s infinite linear;
-  -moz-animation: spin 4s infinite linear;
+	height: 15vh;
+	width: 15vw;
+	animation: spin 4s infinite linear;
+	-webkit-animation: spin 4s infinite linear;
+	-moz-animation: spin 4s infinite linear;
 }
 @-moz-keyframes spin {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
 }
 @-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
 }
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 .button-bar {
-  display: flex;
-  justify-content: space-evenly;
+	display: flex;
+	justify-content: space-evenly;
 }
 .section-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  padding: 0 1rem;
-  width: 100%;
-  cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	padding: 0 1rem;
+	width: 100%;
+	cursor: pointer;
 }
 .section-title:focus {
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 .section-title-selected {
-  background-color: white;
-  border-top: 3px solid crimson;
+	background-color: white;
+	border-top: 3px solid crimson;
 }
 
 .q-and-a {
-  padding-left: 2rem;
-  background-color: white;
-  border-bottom: 1px solid rgb(196, 196, 196);
+	padding-left: 2rem;
+	background-color: white;
+	border-bottom: 1px solid rgb(196, 196, 196);
 }
 .question-container {
-  display: flex;
+	display: flex;
 }
 .question {
-  cursor: pointer;
-  width: 100%;
-  margin-right: 1rem;
+	cursor: pointer;
+	width: 100%;
+	margin-right: 1rem;
 }
 .triangle {
-  margin-left: auto;
-  margin-right: 1rem;
-  align-self: center;
+	margin-left: auto;
+	margin-right: 1rem;
+	align-self: center;
 }
 .triangle-unselected {
-  transform: rotate(0deg);
-  transition: transform 300ms ease;
+	transform: rotate(0deg);
+	transition: transform 300ms ease;
 }
 .triangle-selected {
-  transform: rotate(90deg);
-  transition: transform 300ms ease;
+	transform: rotate(90deg);
+	transition: transform 300ms ease;
 }
 
 .answers {
-  transition: opacity 1000ms ease;
+	transition: opacity 1000ms ease;
 }
 .answers-hide {
-  opacity: 0;
+	opacity: 0;
 }
 .answers-show {
-  opacity: 1;
-  padding-bottom: 1rem;
+	opacity: 1;
+	padding-bottom: 1rem;
 }
 .answer {
-  margin-right: 2rem;
+	margin-right: 2rem;
 }
